@@ -9,7 +9,9 @@
         android:background="#F1EBFF"
         android:foregroundTint="#000000"
         android:visibility="visible"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:id="@+id/stepa_create_order"
+        tools:viewBindingIgnore="true">
 
         <LinearLayout
         android:id="@+id/linearLayout3"
@@ -58,7 +60,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
             <TextView
-                android:id="@+id/ВведитеФИО"
+                android:id="@+id/fio_input_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -74,7 +76,7 @@
                 app:layout_constraintVertical_bias="0.011" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ВводФИО"
+                android:id="@+id/fio_input"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -88,10 +90,10 @@
                 android:textColorHint="#D8D8D8"
                 android:textSize="17dp"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/ВведитеФИО"></com.google.android.material.textfield.TextInputEditText>
+                app:layout_constraintTop_toBottomOf="@+id/fio_input_header" />
 
             <TextView
-                android:id="@+id/ВвведитеНомерТелефона"
+                android:id="@+id/phone_num_input_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -107,7 +109,7 @@
                 app:layout_constraintVertical_bias="0.011" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ВводНомера"
+                android:id="@+id/phone_num_input"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -122,10 +124,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ВвведитеНомерТелефона"></com.google.android.material.textfield.TextInputEditText>
+                app:layout_constraintTop_toBottomOf="@+id/phone_num_input_header" />
 
             <TextView
-                android:id="@+id/ТипУстройства"
+                android:id="@+id/device_type_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -185,7 +187,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/ОпишитеПроблемуБолееПодробно"
+                android:id="@+id/problem_desc_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -218,10 +220,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ОпишитеПроблемуБолееПодробно"></com.google.android.material.textfield.TextInputEditText>
+                app:layout_constraintTop_toBottomOf="@+id/problem_desc_header" />
 
             <TextView
-                android:id="@+id/ВыборМастера"
+                android:id="@+id/master_choice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -251,7 +253,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/ВыборДаты"
+                android:id="@+id/data_choice_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -267,7 +269,7 @@
                 app:layout_constraintVertical_bias="0.011" />
 
             <EditText
-                android:id="@+id/ВыберитеДату"
+                android:id="@+id/date_choice"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="start"
@@ -286,10 +288,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ВыборДаты" />
+                app:layout_constraintTop_toBottomOf="@+id/data_choice_header" />
 
             <TextView
-                android:id="@+id/Промокод"
+                android:id="@+id/promocode_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -305,7 +307,7 @@
                 app:layout_constraintVertical_bias="0.011" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ВводПромокода"
+                android:id="@+id/promocode_input"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -319,10 +321,10 @@
                 android:textColorHint="#D8D8D8"
                 android:textSize="17dp"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/Промокод"></com.google.android.material.textfield.TextInputEditText>
+                app:layout_constraintTop_toBottomOf="@+id/promocode_header" />
 
             <TextView
-                android:id="@+id/ПримернаяСт"
+                android:id="@+id/approx_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1EBFF"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/stepa_home_page"
+    tools:viewBindingIgnore="true">
 
     <LinearLayout
         android:id="@+id/linearLayout3"

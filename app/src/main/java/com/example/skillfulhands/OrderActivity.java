@@ -49,7 +49,7 @@ public class OrderActivity extends AppCompatActivity {
         String[] masters = new String[]{getResources().getString(R.string.choice), "Геннадий Масловский", "Марина Масловская", "Степан Беркунов"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this, R.layout.spiner_item, masters);
         dropdown3.setAdapter(adapter3);
-        editText=(EditText) findViewById(R.id.ВыберитеДату);
+        editText=(EditText) findViewById(R.id.date_choice);
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {

@@ -7,7 +7,8 @@
     android:background="#F1EBFF"
     android:foregroundTint="#000000"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:viewBindingIgnore="true">
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"

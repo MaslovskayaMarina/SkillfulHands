@@ -7,7 +7,9 @@
     android:background="#F1EBFF"
     android:foregroundTint="#000000"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/stepa_my_order"
+    tools:viewBindingIgnore="true">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -84,7 +86,7 @@
                         app:layout_constraintEnd_toStartOf="@+id/textView2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0"></ImageView>
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -96,7 +98,7 @@
                         android:textColor="#5E5E5E"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/imageView2"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -107,7 +109,7 @@
                         android:textColor="#000000"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/textView2"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/button"
@@ -120,7 +122,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
 
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></Button>
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -133,7 +135,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_more_time_24"></ImageView>
+                        android:src="@drawable/ic_baseline_more_time_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -141,7 +143,7 @@
                         android:paddingLeft="3dp"
                         android:text="Дата приема:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -149,7 +151,7 @@
                         android:paddingLeft="3dp"
                         android:text="28.02.2022"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -163,7 +165,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_wifi_protected_setup_24"></ImageView>
+                        android:src="@drawable/ic_baseline_wifi_protected_setup_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -171,7 +173,7 @@
                         android:paddingLeft="3dp"
                         android:text="Статус:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -179,7 +181,7 @@
                         android:paddingLeft="3dp"
                         android:text="в процессе"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -193,7 +195,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_outline_monetization_on_24"></ImageView>
+                        android:src="@drawable/ic_outline_monetization_on_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -201,7 +203,7 @@
                         android:paddingLeft="3dp"
                         android:text="Стоимость:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -209,7 +211,7 @@
                         android:paddingLeft="3dp"
                         android:text="9000 рублей"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -222,7 +224,7 @@
                     android:padding="15dp"
                     android:text="Можно забрать: 09.04.2022"
                     android:textColor="#000000"
-                    android:textSize="20dp"></TextView>
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -250,7 +252,7 @@
                         app:layout_constraintEnd_toStartOf="@+id/textView22"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0"></ImageView>
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
                         android:id="@+id/textView22"
@@ -262,7 +264,7 @@
                         android:textColor="#5E5E5E"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/imageView22"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -272,7 +274,7 @@
                         android:textColor="#000000"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/textView22"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:layout_width="20dp"
@@ -284,7 +286,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
 
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></Button>
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -297,7 +299,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_more_time_24"></ImageView>
+                        android:src="@drawable/ic_baseline_more_time_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -305,7 +307,7 @@
                         android:paddingLeft="3dp"
                         android:text="Дата приема:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -313,7 +315,7 @@
                         android:paddingLeft="3dp"
                         android:text="08.03.2022"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -328,7 +330,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_wifi_protected_setup_24"></ImageView>
+                        android:src="@drawable/ic_baseline_wifi_protected_setup_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -336,7 +338,7 @@
                         android:paddingLeft="3dp"
                         android:text="Статус:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -344,7 +346,7 @@
                         android:paddingLeft="3dp"
                         android:text="ожидание"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -361,7 +363,7 @@
                         android:paddingTop="15dp"
                         android:text="Стоимость изменена"
                         android:textColor="#000000"
-                        android:textSize="20dp"></TextView>
+                        android:textSize="20dp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -375,7 +377,7 @@
                             android:layout_height="wrap_content"
                             android:text="Причина:"
                             android:textColor="#5E5E5E"
-                            android:textSize="18dp"></TextView>
+                            android:textSize="18dp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -383,7 +385,7 @@
                             android:paddingLeft="3dp"
                             android:text="необходима закупка комплектующих"
                             android:textColor="#000000"
-                            android:textSize="18dp"></TextView>
+                            android:textSize="18dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -398,7 +400,7 @@
                             android:layout_height="wrap_content"
                             android:text="Новая стоимость:"
                             android:textColor="#5E5E5E"
-                            android:textSize="18dp"></TextView>
+                            android:textSize="18dp" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -406,7 +408,7 @@
                             android:paddingLeft="3dp"
                             android:text="18000 рублей"
                             android:textColor="#000000"
-                            android:textSize="18dp"></TextView>
+                            android:textSize="18dp" />
                     </LinearLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -468,7 +470,7 @@
                         app:layout_constraintEnd_toStartOf="@+id/textView25"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="1.0"></ImageView>
+                        app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
                         android:id="@+id/textView25"
@@ -480,7 +482,7 @@
                         android:textColor="#5E5E5E"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/imageView23"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView73"
@@ -491,7 +493,7 @@
                         android:textColor="#000000"
                         android:textSize="18dp"
                         app:layout_constraintStart_toEndOf="@+id/textView25"
-                        app:layout_constraintTop_toTopOf="parent"></TextView>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/button9"
@@ -504,7 +506,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="1.0"
 
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></Button>
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -517,7 +519,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_access_time_24"></ImageView>
+                        android:src="@drawable/ic_baseline_access_time_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -525,7 +527,7 @@
                         android:paddingLeft="3dp"
                         android:text="Дата получения:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -533,7 +535,7 @@
                         android:paddingLeft="3dp"
                         android:text="17.02.2022"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
@@ -547,7 +549,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_baseline_wifi_protected_setup_24"></ImageView>
+                        android:src="@drawable/ic_baseline_wifi_protected_setup_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -555,7 +557,7 @@
                         android:paddingLeft="3dp"
                         android:text="Статус:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -563,7 +565,7 @@
                         android:paddingLeft="3dp"
                         android:text="получен"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -577,7 +579,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_outline_verified_24"></ImageView>
+                        android:src="@drawable/ic_outline_verified_24" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -585,7 +587,7 @@
                         android:paddingLeft="3dp"
                         android:text="Гарантия:"
                         android:textColor="#5E5E5E"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -593,7 +595,7 @@
                         android:paddingLeft="3dp"
                         android:text="1 год"
                         android:textColor="#000000"
-                        android:textSize="18dp"></TextView>
+                        android:textSize="18dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

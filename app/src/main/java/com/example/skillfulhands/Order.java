@@ -53,7 +53,7 @@ public class Order extends Fragment {
         String[] masters = new String[]{getResources().getString(R.string.choice), "Геннадий Масловский", "Марина Масловская", "Степан Беркунов"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, masters);
         dropdown3.setAdapter(adapter3);
-        editText=(EditText) v.findViewById(R.id.ВыберитеДату);
+        editText=(EditText) v.findViewById(R.id.date_choice);
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
