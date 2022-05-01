@@ -20,16 +20,15 @@ public class Repository {
         aboutOrder.setNamePerson("Марина");
         aboutOrder.setNumberMaster("+79012227473");
         aboutOrder.setNumberPerson("+79012227773");
+        orders.add(aboutOrder);
     }
 
     public AboutOrder getOrderByNum(int num) {
+        OrdersRepo();
         AboutOrder result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = orders.stream().filter(aboutOrder -> aboutOrder.getNum()==num).findFirst().get();
         }
         return result;
     }
-
-
-
 }

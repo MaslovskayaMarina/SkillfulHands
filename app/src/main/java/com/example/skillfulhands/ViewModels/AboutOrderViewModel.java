@@ -23,5 +23,4 @@ public class AboutOrderViewModel extends ViewModel {
     public MutableLiveData<AboutOrder> getAboutOrder() {
         return aboutOrder;
     }
-
 }
