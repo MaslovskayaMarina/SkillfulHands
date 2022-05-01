@@ -32,7 +32,6 @@ public class AboutOrderFragment extends Fragment {
         // required
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = InformationAboutBinding.inflate(inflater, container, false);
