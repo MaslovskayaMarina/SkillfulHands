@@ -19,8 +19,6 @@ import com.example.skillfulhands.databinding.InformationAboutBinding;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-
-
 public class AboutOrderFragment extends Fragment {
     private AboutOrderViewModel order;
     private InformationAboutBinding binding;
@@ -32,12 +30,12 @@ public class AboutOrderFragment extends Fragment {
     public static AboutOrderFragment newInstance() {
         return new AboutOrderFragment();
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
         order = new ViewModelProvider(this).get(AboutOrderViewModel.class);
+
         order.giveOrder(12345);
         return inflater.inflate(R.layout.information_about, container, false);
     }
@@ -47,7 +45,10 @@ public class AboutOrderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = InformationAboutBinding.bind(view);
         order.getAboutOrder().observe(getViewLifecycleOwner(), order1 -> {
-            binding.namedevice.setText(order1.getDevice());
+            binding.namedevice.setText("Наушники");
         });
     }
+
+
+
 }

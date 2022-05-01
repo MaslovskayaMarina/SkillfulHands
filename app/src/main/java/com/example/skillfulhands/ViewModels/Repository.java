@@ -10,6 +10,10 @@ import java.util.List;
 public class Repository {
     public List<AboutOrder> orders = new ArrayList<>();
 
+    Repository() {
+        OrdersRepo();
+    }
+
     public void OrdersRepo(){
         AboutOrder aboutOrder =  new AboutOrder();
         aboutOrder.setNum(12345);
@@ -28,7 +32,8 @@ public class Repository {
         AboutOrder result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = orders.stream().filter(aboutOrder -> aboutOrder.getNum()==num).findFirst().get();
+            return result;
         }
-        return result;
+        return orders.get(0);
     }
 }
