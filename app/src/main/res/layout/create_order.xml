@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1EBFF"
+        android:foregroundTint="#000000"
+        android:visibility="visible"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#323076"
+            android:minHeight="?attr/actionBarSize"
+            app:subtitleTextColor="#FFFFFF"
+            app:title="Заявка на ремонт"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:titleTextColor="#FFFFFF" />
+
+    </LinearLayout>
+
+        <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal" />
+
+        <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <TextView
+                android:id="@+id/ВведитеФИО"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="10dp"
+                android:text="@string/fio"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ВводФИО"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kryg"
+                android:gravity="left|center_vertical"
+                android:hint="Иванов Иван Иванович"
+                android:paddingStart="10dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/ВведитеФИО"></com.google.android.material.textfield.TextInputEditText>
+
+            <TextView
+                android:id="@+id/ВвведитеНомерТелефона"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/phoneNumber"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ВводНомера"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kryg"
+                android:hint="+ 7 (901) 000-00-00"
+                android:paddingStart="10dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ВвведитеНомерТелефона"></com.google.android.material.textfield.TextInputEditText>
+
+            <TextView
+                android:id="@+id/ТипУстройства"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/device"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <Spinner
+                android:id="@+id/spinner_"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/kryg"
+                android:paddingStart="10dp"
+                android:popupBackground="@drawable/kryg"
+                android:spinnerMode="dropdown"
+                android:textColorHint="#D8D8D8"
+                android:tooltipText="Выбрать"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/СЧемВозниклаПроблема"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/problem"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <Spinner
+                android:id="@+id/spinner__"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/kryg"
+                android:paddingStart="10dp"
+                android:popupBackground="@drawable/kryg"
+                android:spinnerMode="dropdown"
+                android:textColorHint="#D8D8D8"
+                android:tooltipText="Выбрать"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ОпишитеПроблемуБолееПодробно"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/problemMore"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ВведитеТекст"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="start"
+                android:layout_margin="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kryg"
+                android:gravity="top"
+                android:hint="Введите текст..."
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ОпишитеПроблемуБолееПодробно"></com.google.android.material.textfield.TextInputEditText>
+
+            <TextView
+                android:id="@+id/ВыборМастера"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/master"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <Spinner
+                android:id="@+id/spinner___"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/kryg"
+                android:paddingStart="10dp"
+                android:popupBackground="@drawable/kryg"
+                android:spinnerMode="dropdown"
+                android:textColorHint="#D8D8D8"
+                android:tooltipText="Выбрать"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ВыборДаты"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/date"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <EditText
+                android:id="@+id/ВыберитеДату"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:layout_margin="0dp"
+                android:background="@drawable/kryg"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center_vertical"
+                android:hint="Выберите Дату"
+                android:paddingStart="10dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ВыборДаты" />
+
+            <TextView
+                android:id="@+id/Промокод"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="@string/promoCode"
+                android:textColor="#FF0000"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ВводПромокода"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kryg"
+                android:gravity="center_vertical"
+                android:hint="Промокод..."
+                android:paddingStart="10dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/Промокод"></com.google.android.material.textfield.TextInputEditText>
+
+            <TextView
+                android:id="@+id/ПримернаяСт"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:paddingStart="3dp"
+                android:paddingTop="5dp"
+                android:text="Примерная стоимость: 9000 рублей"
+                android:textColor="#323076"
+                android:textSize="19dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.011" />
+
+            <Button
+                android:id="@+id/angry_btn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="#323076"
+                android:fontFamily="sans-serif"
+                android:paddingStart="3dp"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="0"
+                android:text="ГОТОВО"
+                android:textColor="#FFFFFF"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

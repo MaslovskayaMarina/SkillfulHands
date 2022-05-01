@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SkillfulHands</string>
+    <string name="fio"><font color='#323076'>Ваше ФИО</font>*<font color='#FF0000'></font></string>
+    <string name="phoneNumber"><font color='#323076'>Номер телефона</font>*<font color='#FF0000'></font></string>
+    <string name="device"><font color='#323076'>Тип устройства</font>*<font color='#FF0000'></font></string>
+    <string name="problem"><font color='#323076'>С чем возникла проблема?</font>*<font color='#FF0000'></font></string>
+    <string name="problemMore"><font color='#323076'>Опишите проблему более подробно</font></string>
+    <string name="master"><font color='#323076'>Выбор мастера</font></string>
+    <string name="date"><font color='#323076'>Выбор удобной даты</font>*<font color='#FF0000'></font></string>
+    <string name="promoCode"><font color='#323076'>Промокод</font></string>
+    <string name="choice"><font color='#D8D8D8'>Выбрать...</font></string>
+    <string name="checkPhoneNumber"><font color='#323076'>Введите номер телефона</font>*<font color='#FF0000'></font></string>
+    <string name="aboutOrder">О заказе</string>
+    <string name="numberOrder">Номер заказа</string>
+    <string name="nameDevice">Устройство</string>
+    <string name="datE">Дата приема техники</string>
+    <string name="address">Адрес сервисного центра</string>
+    <string name="customer">Заказчик</string>
+    <string name="nameMaster">Мастер</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
+

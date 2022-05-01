@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1EBFF"
+    android:foregroundTint="#000000"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#323076"
+            android:minHeight="?attr/actionBarSize"
+            app:subtitleTextColor="#FFFFFF"
+            app:title="Заявка успешно создана"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:titleTextColor="#FFFFFF" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/successfully" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Заявка создана!"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/angry_btn3"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif"
+            style="?android:attr/borderlessButtonStyle"
+            android:textAllCaps="false"
+            android:paddingStart="3dp"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="Просмотр информации"
+            android:textColor="#323076"
+            android:textSize="17dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

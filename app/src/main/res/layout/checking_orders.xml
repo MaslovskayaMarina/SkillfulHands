@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/check"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1EBFF"
+    android:foregroundTint="#000000"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#323076"
+            android:minHeight="?attr/actionBarSize"
+            app:subtitleTextColor="#FFFFFF"
+            app:title="Проверка заказов"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
+            app:titleTextColor="#FFFFFF" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+    <TextView
+        android:id="@+id/ВведитеНомерТелефона"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="3dp"
+        android:paddingTop="10dp"
+        android:text="@string/checkPhoneNumber"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.011" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ВводНомера"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_margin="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/kryg"
+        android:gravity="left|center_vertical"
+        android:hint="+ 7 (901) 000-00-00"
+        android:paddingStart="10dp"
+        android:textColor="#323076"
+        android:textColorHint="#D8D8D8"
+        android:textSize="17dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/ВведитеНомерТелефона">
+    </com.google.android.material.textfield.TextInputEditText>
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="sans-serif"
+            android:paddingStart="3dp"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="0"
+            android:text="НАЙТИ"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
