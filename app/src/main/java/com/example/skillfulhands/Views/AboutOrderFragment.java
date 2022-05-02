@@ -35,8 +35,7 @@ public class AboutOrderFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         order = new ViewModelProvider(this).get(AboutOrderViewModel.class);
-
-        order.giveOrder(12345);
+        order.giveOrder("76744");
         return inflater.inflate(R.layout.information_about, container, false);
     }
 
@@ -44,9 +43,8 @@ public class AboutOrderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = InformationAboutBinding.bind(view);
-        order.getAboutOrder().observe(getViewLifecycleOwner(), order1 -> {
-            binding.namedevice.setText("Наушники");
-        });
+
+        binding.namedevice.setText(order.getAboutOrder().getDevice());
     }
 
 

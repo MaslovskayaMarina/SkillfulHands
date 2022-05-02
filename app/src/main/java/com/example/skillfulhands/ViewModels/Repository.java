@@ -16,7 +16,7 @@ public class Repository {
 
     public void OrdersRepo(){
         AboutOrder aboutOrder =  new AboutOrder();
-        aboutOrder.setNum(12345);
+        aboutOrder.setNum("76744");
         aboutOrder.setAddress("Проспект Верндаского дом 1");
         aboutOrder.setDate("01.06.2022");
         aboutOrder.setDevice("Компьютер");
@@ -27,13 +27,13 @@ public class Repository {
         orders.add(aboutOrder);
     }
 
-    public AboutOrder getOrderByNum(int num) {
+    public AboutOrder getOrderByNum(String num) {
         OrdersRepo();
         AboutOrder result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = orders.stream().filter(aboutOrder -> aboutOrder.getNum()==num).findFirst().get();
             return result;
         }
-        return orders.get(0);
+        return result;
     }
 }

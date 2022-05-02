@@ -12,15 +12,14 @@ import com.example.skillfulhands.Models.AboutOrder;
 
 public class AboutOrderViewModel extends ViewModel {
 
-    int num;
-    private MutableLiveData<AboutOrder> aboutOrder = new MutableLiveData<>();
-    private Repository repository;
+    private AboutOrder aboutOrder = new AboutOrder();
+    private Repository repository = new Repository();
 
-    public void giveOrder(int num) {
-        aboutOrder.setValue(repository.getOrderByNum(num));
+    public void giveOrder(String num) {
+        aboutOrder = repository.getOrderByNum(num);
     }
 
-    public MutableLiveData<AboutOrder> getAboutOrder() {
+    public AboutOrder getAboutOrder() {
         return aboutOrder;
     }
 }

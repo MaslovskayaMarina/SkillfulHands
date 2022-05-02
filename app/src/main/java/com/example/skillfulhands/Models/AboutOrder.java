@@ -1,10 +1,10 @@
 package com.example.skillfulhands.Models;
 
 public class AboutOrder {
-    private int num;
+    private String num;
     private String device, date, address, namePerson, numberPerson, master, numberMaster;
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
@@ -36,7 +36,7 @@ public class AboutOrder {
         this.numberMaster = numberMaster;
     }
 
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
