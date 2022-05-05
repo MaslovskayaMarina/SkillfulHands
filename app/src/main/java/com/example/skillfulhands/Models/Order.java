@@ -1,6 +1,6 @@
 package com.example.skillfulhands.Models;
 
-public class AboutOrder {
+public class Order {
     private String num;
     private String device, date, address, namePerson, numberPerson, master, numberMaster;
 

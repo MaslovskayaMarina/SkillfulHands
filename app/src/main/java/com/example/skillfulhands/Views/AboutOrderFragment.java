@@ -1,6 +1,5 @@
 package com.example.skillfulhands.Views;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,10 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.skillfulhands.R;
 import com.example.skillfulhands.ViewModels.AboutOrderViewModel;
-import com.example.skillfulhands.ViewModels.Repository;
 import com.example.skillfulhands.databinding.InformationAboutBinding;
 
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 public class AboutOrderFragment extends Fragment {
@@ -27,9 +24,6 @@ public class AboutOrderFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static AboutOrderFragment newInstance() {
-        return new AboutOrderFragment();
-    }
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,

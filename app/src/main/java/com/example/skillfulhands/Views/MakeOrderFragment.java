@@ -1,4 +1,4 @@
-package com.example.skillfulhands;
+package com.example.skillfulhands.Views;
 
 import android.app.DatePickerDialog;
 import android.icu.text.SimpleDateFormat;
@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,17 +21,31 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.skillfulhands.R;
+import com.example.skillfulhands.Succesfully;
+import com.example.skillfulhands.ViewModels.AboutOrderViewModel;
+import com.example.skillfulhands.ViewModels.MakeOrderViewModel;
+import com.example.skillfulhands.databinding.CreateOrderBinding;
+
 import java.util.Locale;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class Order extends Fragment {
+public class MakeOrderFragment extends Fragment {
     final Calendar myCalendar = Calendar.getInstance();
     EditText editText;
+
+    //private MakeOrderViewModel order;
+    //private CreateOrderBinding binding;
 
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.create_order, container, false);
+
+        //order = new ViewModelProvider(this).get(MakeOrderViewModel.class);
+
+        //Button angryButton = binding.angryBtn;
         Button angryButton = (Button) v.findViewById(R.id.angry_btn);
+
         angryButton.setOnClickListener(new View.OnClickListener() { // ДЛЯ КНОПКИ!!!
             @Override
             public void onClick(View v) {
@@ -39,20 +54,26 @@ public class Order extends Fragment {
                 transaction.replace(R.id.My2st, someFragment );
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+                //binding.fioInput.getText();
             }
         });
+
         Spinner dropdown = v.findViewById(R.id.spinner_);
         String[] devices = new String[]{getResources().getString(R.string.choice), "Компьютер", "Телевизор", "Телефон", "Наушники", "Магнитофон", "Микрофон", "Принтер"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, devices);
         dropdown.setAdapter(adapter);
+
         Spinner dropdown2 = v.findViewById(R.id.spinner__);
         String[] problems = new String[]{getResources().getString(R.string.choice), "Дисплей", "Клавиатура", "Динамики", "Видеокарта", "Картридж"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, problems);
         dropdown2.setAdapter(adapter2);
+
         Spinner dropdown3 = v.findViewById(R.id.spinner___);
         String[] masters = new String[]{getResources().getString(R.string.choice), "Геннадий Масловский", "Марина Масловская", "Степан Беркунов"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, masters);
         dropdown3.setAdapter(adapter3);
+
         editText=(EditText) v.findViewById(R.id.date_choice);
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -63,6 +84,7 @@ public class Order extends Fragment {
                 updateLabel();
             }
         };
+
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

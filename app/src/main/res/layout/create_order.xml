@@ -10,8 +10,7 @@
         android:foregroundTint="#000000"
         android:visibility="visible"
         tools:context=".MainActivity"
-        android:id="@+id/stepa_create_order"
-        tools:viewBindingIgnore="true">
+        android:id="@+id/stepa_create_order">
 
         <LinearLayout
         android:id="@+id/linearLayout3"
@@ -157,7 +156,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/СЧемВозниклаПроблема"
+                android:id="@+id/what_problem_is"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="3dp"
@@ -203,7 +202,7 @@
                 app:layout_constraintVertical_bias="0.011" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ВведитеТекст"
+                android:id="@+id/problem_text"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_gravity="start"
