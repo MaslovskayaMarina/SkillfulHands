@@ -23,9 +23,9 @@ import android.widget.Spinner;
 
 import com.example.skillfulhands.R;
 import com.example.skillfulhands.Succesfully;
-import com.example.skillfulhands.ViewModels.AboutOrderViewModel;
 import com.example.skillfulhands.ViewModels.MakeOrderViewModel;
 import com.example.skillfulhands.databinding.CreateOrderBinding;
+import com.example.skillfulhands.databinding.InformationAboutBinding;
 
 import java.util.Locale;
 
@@ -34,42 +34,55 @@ public class MakeOrderFragment extends Fragment {
     final Calendar myCalendar = Calendar.getInstance();
     EditText editText;
 
-    //private MakeOrderViewModel order;
-    //private CreateOrderBinding binding;
+    private MakeOrderViewModel order;
+    private CreateOrderBinding binding;
 
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.create_order, container, false);
+        order = new ViewModelProvider(this).get(MakeOrderViewModel.class);
 
-        //order = new ViewModelProvider(this).get(MakeOrderViewModel.class);
-
-        //Button angryButton = binding.angryBtn;
-        Button angryButton = (Button) v.findViewById(R.id.angry_btn);
+        binding = CreateOrderBinding.bind(v);
+        Button angryButton = binding.angryBtn;
+        //Button angryButton = (Button) v.findViewById(R.id.angry_btn);
 
         angryButton.setOnClickListener(new View.OnClickListener() { // ДЛЯ КНОПКИ!!!
             @Override
             public void onClick(View v) {
+                String clientFullName = binding.fioInput.getText().toString();
+                String clientPhoneNum = binding.phoneNumInput.getText().toString();
+                String deviceType = binding.spinner1.getTransitionName();
+
+
+                order.makeOrder(clientFullName, clientPhoneNum, deviceType, "dateToCome", "master");
+                //Editable clientFullName = binding.fioInput.getText();
+                //Editable clientPhoneNum = binding.phoneNumInput.getText();
+                //String deviceType = binding.spinner1.getTransitionName();
+                //  String problemType = binding.spinner2.getTransitionName();
+                //  String clientProblem = binding.problemText.getText().toString();
+                // String master= binding.spinner3.getTransitionName();
+                //String dateToCome = binding.dateChoice.getText().toString();
+                //  String promo = binding.promocodeInput.getText().toString();
+
                 Fragment someFragment = new Succesfully();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.My2st, someFragment );
                 transaction.addToBackStack(null);
                 transaction.commit();
-
-                //binding.fioInput.getText();
             }
         });
 
-        Spinner dropdown = v.findViewById(R.id.spinner_);
+        Spinner dropdown = v.findViewById(R.id.spinner1);
         String[] devices = new String[]{getResources().getString(R.string.choice), "Компьютер", "Телевизор", "Телефон", "Наушники", "Магнитофон", "Микрофон", "Принтер"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, devices);
         dropdown.setAdapter(adapter);
 
-        Spinner dropdown2 = v.findViewById(R.id.spinner__);
+        Spinner dropdown2 = v.findViewById(R.id.spinner2);
         String[] problems = new String[]{getResources().getString(R.string.choice), "Дисплей", "Клавиатура", "Динамики", "Видеокарта", "Картридж"};
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, problems);
         dropdown2.setAdapter(adapter2);
 
-        Spinner dropdown3 = v.findViewById(R.id.spinner___);
+        Spinner dropdown3 = v.findViewById(R.id.spinner3);
         String[] masters = new String[]{getResources().getString(R.string.choice), "Геннадий Масловский", "Марина Масловская", "Степан Беркунов"};
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, masters);
         dropdown3.setAdapter(adapter3);

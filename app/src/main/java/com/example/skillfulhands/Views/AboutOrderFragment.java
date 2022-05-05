@@ -29,7 +29,8 @@ public class AboutOrderFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         order = new ViewModelProvider(this).get(AboutOrderViewModel.class);
-        order.giveOrder("76744");
+        //order.giveOrder("76744");
+        order.setRecievedOrder();
         return inflater.inflate(R.layout.information_about, container, false);
     }
 
@@ -38,7 +39,14 @@ public class AboutOrderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding = InformationAboutBinding.bind(view);
 
+        binding.customer.setText(order.getAboutOrder().getNamePerson());
+        binding.numberorder.setText(order.getAboutOrder().getNum());
         binding.namedevice.setText(order.getAboutOrder().getDevice());
+        // todo date
+        binding.address.setText(order.getAboutOrder().getAddress());
+        binding.customer.setText(order.getAboutOrder().getNamePerson() + '\n' + order.getAboutOrder().getNumberPerson());
+        binding.master.setText(order.getAboutOrder().getMaster() + "\n" + order.getAboutOrder().getNumberMaster());
+
     }
 
 

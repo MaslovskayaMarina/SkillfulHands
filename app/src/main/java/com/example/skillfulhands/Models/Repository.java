@@ -2,17 +2,25 @@ package com.example.skillfulhands.Models;
 
 import android.os.Build;
 
-import com.example.skillfulhands.Models.Order;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
+    private static Repository instance;
+
     public List<Order> orders = new ArrayList<>();
     private int orderCounter = 3220000;
+    private String serviceAddress = "Проспект Вернадского, дом 1";
 
     public Repository() {
-        OrdersRepo();
+        //OrdersRepo();
+    }
+
+    public static Repository getInstance() {
+        if (instance == null) {
+            instance = new Repository();
+        }
+        return instance;
     }
 
     public void OrdersRepo(){
@@ -29,12 +37,38 @@ public class Repository {
     }
 
     public Order getOrderByNum(String num) {
-        OrdersRepo();
+        //OrdersRepo();
         Order result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = orders.stream().filter(order -> order.getNum()==num).findFirst().get();
             return result;
         }
         return result;
+    }
+
+    public void CreateOrder(
+            String clientName,
+            String clientPhone,
+            String device,
+            String date,
+            String master
+    ) {
+        Order order =  new Order();
+        order.setNum(Integer.toString(orderCounter));
+        order.setNamePerson(clientName);
+        order.setNumberPerson(clientPhone);
+        order.setDevice(device);
+        order.setDate(date);
+        order.setMaster(master);
+        order.setNumberMaster("+79012227473");
+        order.setAddress("Проспект Верндаского дом 1");
+
+        orders.add(order);
+
+        orderCounter++;
+    }
+
+    public Order getLatest() {
+        return orders.get(orders.size() - 1);
     }
 }
