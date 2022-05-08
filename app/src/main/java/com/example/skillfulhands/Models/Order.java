@@ -3,6 +3,8 @@ package com.example.skillfulhands.Models;
 public class Order {
     private String num;
     private String device, date, address, namePerson, numberPerson, master, numberMaster;
+    private String problemType, description;
+    private int currentPrice;
 
     public void setNum(String num) {
         this.num = num;
@@ -34,6 +36,18 @@ public class Order {
 
     public void setNumberMaster(String numberMaster) {
         this.numberMaster = numberMaster;
+    }
+
+    public void setProblemType(String problemType) {
+        this.problemType = problemType;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCurrentPrice(int currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     public String getNum() {
@@ -68,5 +82,15 @@ public class Order {
         return numberMaster;
     }
 
+    public String getProblemType() {
+        return problemType;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCurrentPrice() {
+        return currentPrice;
+    }
 }

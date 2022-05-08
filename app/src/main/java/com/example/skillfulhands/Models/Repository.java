@@ -9,11 +9,28 @@ public class Repository {
     private static Repository instance;
 
     public List<Order> orders = new ArrayList<>();
+    public List<Promo> promos = new ArrayList<>();
     private int orderCounter = 3220000;
+    private int promoCounter = 7000;
     private String serviceAddress = "Проспект Вернадского, дом 1";
 
     public Repository() {
-        //OrdersRepo();
+        Promo promoMyComputer = new Promo();
+        promoMyComputer.setId(promoCounter);
+        promoMyComputer.setCode("MYCOMPUTER");
+        promoMyComputer.setDescription("Введи промокод MYCOMPUTER и получи сскидку 5% на любой ремонт!");
+        promoMyComputer.setDiscountPercentage(5);
+        promos.add(promoMyComputer);
+        promoCounter++;
+
+        Promo promoNewUser = new Promo();
+        promoNewUser.setId(promoCounter);
+        promoNewUser.setCode("NEWUSER");
+        promoNewUser.setDescription("Введи промокод NEWUSER и получи сскидку 10% на первый ремонт!");
+        promoNewUser.setDiscountPercentage(10);
+        promos.add(promoNewUser);
+        promoCounter++;
+
     }
 
     public static Repository getInstance() {
@@ -37,7 +54,6 @@ public class Repository {
     }
 
     public Order getOrderByNum(String num) {
-        //OrdersRepo();
         Order result = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             result = orders.stream().filter(order -> order.getNum()==num).findFirst().get();
@@ -50,6 +66,8 @@ public class Repository {
             String clientName,
             String clientPhone,
             String device,
+            String problemType,
+            String problemDescription,
             String date,
             String master
     ) {
@@ -59,9 +77,11 @@ public class Repository {
         order.setNumberPerson(clientPhone);
         order.setDevice(device);
         order.setDate(date);
+        order.setProblemType(problemType);
+        order.setDescription(problemDescription);
         order.setMaster(master);
         order.setNumberMaster("+79012227473");
-        order.setAddress("Проспект Верндаского дом 1");
+        order.setAddress(serviceAddress);
 
         orders.add(order);
 

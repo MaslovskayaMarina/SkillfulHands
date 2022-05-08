@@ -42,7 +42,7 @@ public class AboutOrderFragment extends Fragment {
         binding.customer.setText(order.getAboutOrder().getNamePerson());
         binding.numberorder.setText(order.getAboutOrder().getNum());
         binding.namedevice.setText(order.getAboutOrder().getDevice());
-        // todo date
+        binding.dateOfBringing.setText(order.getAboutOrder().getDate());
         binding.address.setText(order.getAboutOrder().getAddress());
         binding.customer.setText(order.getAboutOrder().getNamePerson() + '\n' + order.getAboutOrder().getNumberPerson());
         binding.master.setText(order.getAboutOrder().getMaster() + "\n" + order.getAboutOrder().getNumberMaster());

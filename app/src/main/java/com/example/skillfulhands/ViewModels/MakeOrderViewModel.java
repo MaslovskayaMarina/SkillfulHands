@@ -14,9 +14,13 @@ public class MakeOrderViewModel extends ViewModel {
             String clientName,
             String clientPhone,
             String device,
+            String problemType,
+            String problemDesc,
+            String master,
             String date,
-            String master
+            String promoCode
     ) {
-        repository.CreateOrder(clientName, clientPhone, device, date, master);
+
+        repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master);
     }
 }
