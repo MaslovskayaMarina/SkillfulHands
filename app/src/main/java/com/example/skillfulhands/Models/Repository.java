@@ -15,6 +15,14 @@ public class Repository {
     private String serviceAddress = "Проспект Вернадского, дом 1";
 
     public Repository() {
+        Promo noPromo = new Promo();
+        noPromo.setId(promoCounter);
+        noPromo.setCode("");
+        noPromo.setDescription("Нет промокода");
+        noPromo.setDiscountPercentage(0);
+        promos.add(noPromo);
+        promoCounter++;
+
         Promo promoMyComputer = new Promo();
         promoMyComputer.setId(promoCounter);
         promoMyComputer.setCode("MYCOMPUTER");
@@ -62,15 +70,25 @@ public class Repository {
         return result;
     }
 
+    public Promo getPromoByCode(String code) {
+        Promo promo = null;
+        for (Promo p : promos) {
+            if (p.getCode().equals(code)) {
+                promo = p;
+            }
+        }
+        return promo;
+    }
     public void CreateOrder(
             String clientName,
             String clientPhone,
             String device,
             String problemType,
-            String problemDescription,
+            String problemDesc,
             String date,
-            String master
-    ) {
+            String master,
+            Promo promoCode)
+    {
         Order order =  new Order();
         order.setNum(Integer.toString(orderCounter));
         order.setNamePerson(clientName);
@@ -78,10 +96,11 @@ public class Repository {
         order.setDevice(device);
         order.setDate(date);
         order.setProblemType(problemType);
-        order.setDescription(problemDescription);
+        order.setDescription(problemDesc);
         order.setMaster(master);
         order.setNumberMaster("+79012227473");
         order.setAddress(serviceAddress);
+        order.setPromo(promoCode);
 
         orders.add(order);
 

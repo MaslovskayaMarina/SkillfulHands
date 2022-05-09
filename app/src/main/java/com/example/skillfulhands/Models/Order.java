@@ -5,6 +5,7 @@ public class Order {
     private String device, date, address, namePerson, numberPerson, master, numberMaster;
     private String problemType, description;
     private int currentPrice;
+    private Promo promo;
 
     public void setNum(String num) {
         this.num = num;
@@ -50,6 +51,10 @@ public class Order {
         this.currentPrice = currentPrice;
     }
 
+    public void setPromo(Promo promo) {
+        this.promo = promo;
+    }
+
     public String getNum() {
         return num;
     }
@@ -92,5 +97,9 @@ public class Order {
 
     public int getCurrentPrice() {
         return currentPrice;
+    }
+
+    public Promo getPromo() {
+        return promo;
     }
 }

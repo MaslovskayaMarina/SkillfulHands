@@ -20,7 +20,11 @@ public class MakeOrderViewModel extends ViewModel {
             String date,
             String promoCode
     ) {
-
-        repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master);
+        if (repository.getPromoByCode(promoCode) != null) {
+            repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master, repository.getPromoByCode(promoCode));
+            return;
+        } else {
+            repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master, repository.getPromoByCode(""));
+        }
     }
 }
