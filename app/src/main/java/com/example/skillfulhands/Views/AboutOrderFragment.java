@@ -1,6 +1,5 @@
 package com.example.skillfulhands.Views;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,10 +12,8 @@ import android.view.ViewGroup;
 
 import com.example.skillfulhands.R;
 import com.example.skillfulhands.ViewModels.AboutOrderViewModel;
-import com.example.skillfulhands.ViewModels.Repository;
 import com.example.skillfulhands.databinding.InformationAboutBinding;
 
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 public class AboutOrderFragment extends Fragment {
@@ -27,16 +24,13 @@ public class AboutOrderFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static AboutOrderFragment newInstance() {
-        return new AboutOrderFragment();
-    }
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
         order = new ViewModelProvider(this).get(AboutOrderViewModel.class);
-
-        order.giveOrder(12345);
+        //order.giveOrder("76744");
+        order.setRecievedOrder();
         return inflater.inflate(R.layout.information_about, container, false);
     }
 
@@ -44,9 +38,16 @@ public class AboutOrderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = InformationAboutBinding.bind(view);
-        order.getAboutOrder().observe(getViewLifecycleOwner(), order1 -> {
-            binding.namedevice.setText("Наушники");
-        });
+
+        binding.customer.setText(order.getAboutOrder().getNamePerson());
+        binding.numberorder.setText(order.getAboutOrder().getNum());
+        binding.namedevice.setText(order.getAboutOrder().getDevice());
+        binding.dateOfBringing.setText(order.getAboutOrder().getDate());
+        binding.address.setText(order.getAboutOrder().getAddress());
+        //binding.customer.setText(order.getAboutOrder().getNamePerson() + '\n' + order.getAboutOrder().getNumberPerson());
+        binding.customer.setText(order.getAboutOrder().getPromo().getDescription());
+        binding.master.setText(order.getAboutOrder().getMaster() + "\n" + order.getAboutOrder().getNumberMaster());
+
     }
 
 

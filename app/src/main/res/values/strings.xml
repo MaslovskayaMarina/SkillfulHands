@@ -10,7 +10,7 @@
     <string name="promoCode"><font color='#323076'>Промокод</font></string>
     <string name="choice"><font color='#D8D8D8'>Выбрать...</font></string>
     <string name="checkPhoneNumber"><font color='#323076'>Введите номер телефона</font>*<font color='#FF0000'></font></string>
-    <string name="aboutOrder">О заказе</string>
+    <string name="order">О заказе</string>
     <string name="numberOrder">Номер заказа</string>
     <string name="nameDevice">Устройство</string>
     <string name="datE">Дата приема техники</string>

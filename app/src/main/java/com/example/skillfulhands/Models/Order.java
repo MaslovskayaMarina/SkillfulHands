@@ -1,10 +1,13 @@
 package com.example.skillfulhands.Models;
 
-public class AboutOrder {
-    private int num;
+public class Order {
+    private String num;
     private String device, date, address, namePerson, numberPerson, master, numberMaster;
+    private String problemType, description;
+    private int currentPrice;
+    private Promo promo;
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
@@ -36,7 +39,23 @@ public class AboutOrder {
         this.numberMaster = numberMaster;
     }
 
-    public int getNum() {
+    public void setProblemType(String problemType) {
+        this.problemType = problemType;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCurrentPrice(int currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
+    public void setPromo(Promo promo) {
+        this.promo = promo;
+    }
+
+    public String getNum() {
         return num;
     }
 
@@ -68,5 +87,19 @@ public class AboutOrder {
         return numberMaster;
     }
 
+    public String getProblemType() {
+        return problemType;
+    }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public int getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public Promo getPromo() {
+        return promo;
+    }
 }
