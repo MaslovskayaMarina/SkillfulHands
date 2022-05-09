@@ -7,11 +7,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.skillfulhands.Views.MyOrdersFragment;
 
 public class Checking extends Fragment {
     @Nullable
@@ -22,7 +23,7 @@ public class Checking extends Fragment {
         angryButton.setOnClickListener(new View.OnClickListener() { // ДЛЯ КНОПКИ!!!
             @Override
             public void onClick(View v) {
-                Fragment someFragment = new MyOrders();
+                Fragment someFragment = new MyOrdersFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.My2st, someFragment );
                 transaction.addToBackStack(null);
