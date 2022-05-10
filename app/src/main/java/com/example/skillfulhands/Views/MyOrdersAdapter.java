@@ -1,5 +1,6 @@
 package com.example.skillfulhands.Views;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +18,31 @@ import java.util.Collection;
 import java.util.List;
 
 public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrdersViewHolder> {
-    private OrderDoneBinding binding;
-    private List<Order> orderList = new ArrayList<>();
+    private ArrayList<Order> orderList;
+    Context context;
+
+    public MyOrdersAdapter(ArrayList<Order> data, Context context) {
+        this.orderList = data;
+        this.context=context;
+    }
 
     @NonNull
     @Override
-    public MyOrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order_done, parent, false);
-
-        return new MyOrdersViewHolder(view);
+    public MyOrdersAdapter.MyOrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater=LayoutInflater.from(parent.getContext());
+        View view=inflater.inflate(R.layout.order_done, parent, false);
+        return new MyOrdersAdapter.MyOrdersViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyOrdersViewHolder holder, int position) {
-        holder.bind(orderList.get(position));
+    public void onBindViewHolder(@NonNull final MyOrdersAdapter.MyOrdersViewHolder holder, int position) {
+        final Order temp = orderList.get(position);
+
+        holder.id.setText(orderList.get(position).getNum());
+        holder.date.setText(orderList.get(position).getDate());
+        holder.status.setText(orderList.get(position).getStatus().getTitle());
+        holder.warranty.setText("1 year");
+
     }
 
     @Override
@@ -38,35 +50,20 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
         return orderList.size();
     }
 
-    public void setItems(Collection<Order> orders) {
-        orderList.addAll(orders);
-        notifyDataSetChanged();
-    }
-
-    public void clearItems() {
-        orderList.clear();
-        notifyDataSetChanged();
-    }
-
     class MyOrdersViewHolder extends RecyclerView.ViewHolder {
-        private TextView orderNum;
-        private TextView dateOfBringing;
-        private TextView status;
-        private TextView warranty;
+        TextView id, date, status, warranty;
 
         public MyOrdersViewHolder(@NonNull View itemView) {
             super(itemView);
-            orderNum = binding.textView73;
-            dateOfBringing = binding.dateOfBringing;
-            status = binding.status;
-            warranty = binding.warranty;
+            id = itemView.findViewById(R.id.textView73);
+            date = itemView.findViewById(R.id.date_of_bringing);
+            status = itemView.findViewById(R.id.status);
+            warranty = itemView.findViewById(R.id.warranty);
         }
+    }
 
-        public void bind(Order order) {
-            orderNum.setText(order.getNum());
-            dateOfBringing.setText(order.getDate());
-            status.setText(order.getStatus().toString());
-            warranty.setText("1 год");
-        }
+    @Override
+    public void onBindViewHolder(@NonNull MyOrdersViewHolder holder, int position, @NonNull List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
     }
 }

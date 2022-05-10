@@ -12,6 +12,31 @@ public class Order {
         this.status = Status.PROCESS;
     }
 
+    public Order(String num,
+                 String device,
+                 String date,
+                 String address,
+                 String namePerson,
+                 String numberPerson,
+                 String master,
+                 String numberMaster,
+                 String problemType,
+                 String description) {
+        this.num = num;
+        this.device = device;
+        this.date = date;
+        this.address = address;
+        this.namePerson = namePerson;
+        this.numberPerson = numberPerson;
+        this.master = master;
+        this.numberMaster = numberMaster;
+        this.problemType = problemType;
+        this.description = description;
+        this.currentPrice = currentPrice;
+        this.promo = promo;
+        this.status = Status.PROCESS;
+    }
+
     public void setNum(String num) {
         this.num = num;
     }

@@ -5,7 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +22,7 @@ import com.example.skillfulhands.ViewModels.MyOrdersViewModel;
 import com.example.skillfulhands.databinding.CreateOrderBinding;
 import com.example.skillfulhands.databinding.MyOrderBinding;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -37,45 +40,26 @@ public class MyOrdersFragment extends Fragment {
         View v = inflater.inflate(R.layout.my_order, container, false);
         orders = new ViewModelProvider(this).get(MyOrdersViewModel.class);
 
+        orders = new ViewModelProvider(this).get(MyOrdersViewModel.class);
+        final Observer<ArrayList<Order>> nameObserver = new Observer<ArrayList<Order>>() {
+            @Override
+            public void onChanged(@Nullable final ArrayList<Order> order) {
+                myOrdersAdapter = new MyOrdersAdapter(order,requireContext());
+                ordersRecyclerView.setAdapter(myOrdersAdapter);
+            }
+        };
+        ordersRecyclerView = v.findViewById(R.id.orders_recycler_view);
+
+        orders.getUserOrders(v).observe(getViewLifecycleOwner(), nameObserver);
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),1);
+        ordersRecyclerView.setLayoutManager(gridLayoutManager);
+
         return v;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = MyOrderBinding.bind(view);
-
-        initRecyclerView();
-        //loadOrders();
-    }
-
-    private void loadOrders() {
-        Collection<Order> orders = getOrders();
-        myOrdersAdapter.setItems(orders);
-    }
-
-    @NonNull
-    private Collection<Order> getOrders() {
-        Order order1 = new Order();
-        order1.setMock();
-        Order order2 = new Order();
-        order2.setMock();
-        Order order3 = new Order();
-        order3.setMock();
-
-        return Arrays.asList(
-                order1,
-                order2,
-                order3
-        );
-    }
-
-    private void initRecyclerView() {
-        //ordersRecyclerView = binding.ordersRecyclerView;
-        ordersRecyclerView = getView().findViewById(R.id.orders_recycler_view);
-        ordersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        myOrdersAdapter = new MyOrdersAdapter();
-        ordersRecyclerView.setAdapter(myOrdersAdapter);
     }
 
 

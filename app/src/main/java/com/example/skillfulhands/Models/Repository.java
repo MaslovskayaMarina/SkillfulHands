@@ -39,6 +39,7 @@ public class Repository {
         promos.add(promoNewUser);
         promoCounter++;
 
+        fillRepo();
     }
 
     public static Repository getInstance() {
@@ -109,5 +110,36 @@ public class Repository {
 
     public Order getLatest() {
         return orders.get(orders.size() - 1);
+    }
+
+    public void fillRepo() {
+        orders.add(new Order(
+                "223",
+                "Apple iPad",
+                "31.01.2022",
+                "Улица Пушкина д.8",
+                "Ричард III",
+                "+798422848284",
+                "Van Darkholme",
+                "+792582858253",
+                "Проблема не во мне, проблема в тебе",
+                "Сел я значит на айпад.."
+        ));
+        orders.add(new Order(
+                "224",
+                "Realme XT",
+                "24.11.2022",
+                "Улица Есенина д.Каруселина",
+                "Джонни Депп",
+                "+783975927970",
+                "Van Darkholme",
+                "+792583523523",
+                "Сломанная камера",
+                "После того, как уронил телефон в туалет.."
+        ));
+    }
+
+    public ArrayList<Order> getOrdersByUser() {
+        return (ArrayList<Order>) orders;
     }
 }
