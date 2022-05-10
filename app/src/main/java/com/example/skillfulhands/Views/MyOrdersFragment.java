@@ -36,16 +36,17 @@ public class MyOrdersFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.my_order, container, false);
         orders = new ViewModelProvider(this).get(MyOrdersViewModel.class);
-        binding = MyOrderBinding.bind(v);
 
-        initRecyclerView();
         return v;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadOrders();
+        binding = MyOrderBinding.bind(view);
+
+        initRecyclerView();
+        //loadOrders();
     }
 
     private void loadOrders() {
@@ -53,6 +54,7 @@ public class MyOrdersFragment extends Fragment {
         myOrdersAdapter.setItems(orders);
     }
 
+    @NonNull
     private Collection<Order> getOrders() {
         Order order1 = new Order();
         order1.setMock();
@@ -69,8 +71,9 @@ public class MyOrdersFragment extends Fragment {
     }
 
     private void initRecyclerView() {
-        ordersRecyclerView = binding.ordersRecyclerView;
-        ordersRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        //ordersRecyclerView = binding.ordersRecyclerView;
+        ordersRecyclerView = getView().findViewById(R.id.orders_recycler_view);
+        ordersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         myOrdersAdapter = new MyOrdersAdapter();
         ordersRecyclerView.setAdapter(myOrdersAdapter);
     }
