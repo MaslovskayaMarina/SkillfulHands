@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,10 +22,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.skillfulhands.R;
-import com.example.skillfulhands.Succesfully;
 import com.example.skillfulhands.ViewModels.MakeOrderViewModel;
 import com.example.skillfulhands.databinding.CreateOrderBinding;
-import com.example.skillfulhands.databinding.InformationAboutBinding;
 
 import java.util.Locale;
 

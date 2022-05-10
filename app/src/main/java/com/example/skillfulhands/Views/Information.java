@@ -1,4 +1,4 @@
-package com.example.skillfulhands;
+package com.example.skillfulhands.Views;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.skillfulhands.R;
 
 public class Information extends Fragment {
 
