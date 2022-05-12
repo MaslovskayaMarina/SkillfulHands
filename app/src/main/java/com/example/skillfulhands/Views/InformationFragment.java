@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.skillfulhands.R;
 
-public class Information extends Fragment {
+public class InformationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

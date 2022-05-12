@@ -91,7 +91,7 @@ public class MakeOrderFragment extends Fragment {
 
                 order.makeOrder(clientFullName, clientPhoneNum, deviceType, problemType, problemDesc, clientMaster, dateToCome, promoCode);
 
-                Fragment someFragment = new Succesfully();
+                Fragment someFragment = new SuccesfullyFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.My2st, someFragment );
                 transaction.addToBackStack(null);

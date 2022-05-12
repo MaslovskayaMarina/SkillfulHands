@@ -13,7 +13,7 @@ import android.widget.Button;
 import com.example.skillfulhands.R;
 import com.example.skillfulhands.Views.AboutOrderFragment;
 
-public class Succesfully extends Fragment {
+public class SuccesfullyFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

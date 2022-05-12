@@ -10,6 +10,8 @@ public class Repository {
 
     public List<Order> orders = new ArrayList<>();
     public List<Promo> promos = new ArrayList<>();
+    private String userNum = "777";
+
     private int orderCounter = 3220000;
     private int promoCounter = 7000;
     private String serviceAddress = "Проспект Вернадского, дом 1";
@@ -80,6 +82,7 @@ public class Repository {
         }
         return promo;
     }
+
     public void CreateOrder(
             String clientName,
             String clientPhone,
@@ -140,6 +143,16 @@ public class Repository {
     }
 
     public ArrayList<Order> getOrdersByUser() {
-        return (ArrayList<Order>) orders;
+        ArrayList<Order> result = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getNumberPerson().equals(userNum)) {
+                result.add(order);
+            }
+        }
+        return result;
+    }
+
+    public void setUserNum(String userNum) {
+        this.userNum = userNum;
     }
 }

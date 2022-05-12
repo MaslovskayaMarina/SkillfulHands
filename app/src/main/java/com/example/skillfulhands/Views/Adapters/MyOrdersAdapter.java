@@ -1,4 +1,4 @@
-package com.example.skillfulhands.Views;
+package com.example.skillfulhands.Views.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skillfulhands.Models.Order;
 import com.example.skillfulhands.R;
-import com.example.skillfulhands.databinding.OrderDoneBinding;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrdersViewHolder> {
