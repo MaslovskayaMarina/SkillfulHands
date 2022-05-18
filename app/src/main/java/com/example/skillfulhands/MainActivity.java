@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.skillfulhands.Views.CheckingFragment;
+import com.example.skillfulhands.Views.HomePageFragment;
 import com.example.skillfulhands.Views.MakeOrderFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        getSupportFragmentManager().beginTransaction().replace(R.id.My2st, new HomePageFragment()).commit();
 
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -34,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
                     case R.id.page_1:
-                        selectedFragment = new HomePage();
+                        selectedFragment = new HomePageFragment();
                         break;
                     case R.id.page_2:
                         selectedFragment = new MakeOrderFragment();
                         break;
                     case R.id.page_3:
-                        selectedFragment = new Checking();
+                        selectedFragment = new CheckingFragment();
                         break;
                 }
                 if (selectedFragment != null) {

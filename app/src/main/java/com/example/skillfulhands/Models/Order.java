@@ -6,6 +6,36 @@ public class Order {
     private String problemType, description;
     private int currentPrice;
     private Promo promo;
+    private Status status;
+
+    public Order() {
+        this.status = Status.PROCESS;
+    }
+
+    public Order(String num,
+                 String device,
+                 String date,
+                 String address,
+                 String namePerson,
+                 String numberPerson,
+                 String master,
+                 String numberMaster,
+                 String problemType,
+                 String description) {
+        this.num = num;
+        this.device = device;
+        this.date = date;
+        this.address = address;
+        this.namePerson = namePerson;
+        this.numberPerson = numberPerson;
+        this.master = master;
+        this.numberMaster = numberMaster;
+        this.problemType = problemType;
+        this.description = description;
+        this.currentPrice = currentPrice;
+        this.promo = promo;
+        this.status = Status.PROCESS;
+    }
 
     public void setNum(String num) {
         this.num = num;
@@ -55,6 +85,30 @@ public class Order {
         this.promo = promo;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setMock() {
+        this.num = "228";
+        this.device = "Wileyfox AMG 63";
+        this.date = "27.02.2002";
+        this.address = "Вавилова 5";
+        this.namePerson = "Юрий Дудь";
+        this.numberPerson = "+79774470661";
+        this.master = "Гена Букин";
+        this.numberMaster = "+378887776655";
+        this.problemType = "Матрица экрана";
+        this.description = "Сломалась значит у меня матрица на мобиле..";
+        this.currentPrice = 8000;
+        this.promo = new Promo();
+        this.promo.setCode("HESOYAM");
+        this.promo.setId(666);
+        this.promo.setDescription("Ну вот значит тестовая акция на 15 процентов");
+        this.promo.setDiscountPercentage(15);
+        this.status = Status.DONE;
+    }
+
     public String getNum() {
         return num;
     }
@@ -101,5 +155,9 @@ public class Order {
 
     public Promo getPromo() {
         return promo;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 }

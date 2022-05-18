@@ -85,6 +85,7 @@
                 android:gravity="left|center_vertical"
                 android:hint="Иванов Иван Иванович"
                 android:paddingStart="10dp"
+                android:inputType="textPersonName"
                 android:textColor="#323076"
                 android:textColorHint="#D8D8D8"
                 android:textSize="17dp"
@@ -100,13 +101,14 @@
                 android:text="@string/phoneNumber"
                 android:textColor="#FF0000"
                 android:textSize="15dp"
+                android:inputType="phone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.054"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
                 app:layout_constraintVertical_bias="0.011" />
-
+            <!--
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phone_num_input"
                 android:layout_width="match_parent"
@@ -120,11 +122,32 @@
                 android:textColor="#323076"
                 android:textColorHint="#D8D8D8"
                 android:textSize="17dp"
+                android:inputType="phone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_num_input_header" />
-
+            -->
+            <com.example.skillfulhands.MaskedEditText
+                android:id="@+id/phone_num_input"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/kryg"
+                android:hint="+ 7 (901) 000-00-00"
+                android:paddingStart="10dp"
+                android:textColor="#323076"
+                android:textColorHint="#D8D8D8"
+                android:textSize="17dp"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_num_input_header"
+                app:mask="+9 (999) 999-99-99"
+                app:placeholder="_"/>
             <TextView
                 android:id="@+id/device_type_header"
                 android:layout_width="match_parent"
@@ -216,6 +239,7 @@
                 android:textColor="#323076"
                 android:textColorHint="#D8D8D8"
                 android:textSize="17dp"
+                android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -322,23 +346,44 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/promocode_header" />
 
-            <TextView
-                android:id="@+id/approx_price"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center"
-                android:paddingStart="3dp"
-                android:paddingTop="5dp"
-                android:text="Примерная стоимость: 9000 рублей"
-                android:textColor="#323076"
-                android:textSize="19dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.054"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-                app:layout_constraintVertical_bias="0.011" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/approx_price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingStart="3dp"
+                    android:paddingTop="5dp"
+                    android:text="Примерная стоимость: "
+                    android:textColor="#323076"
+                    android:textSize="19dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.339"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/approx_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingStart="3dp"
+                    android:paddingTop="5dp"
+                    android:text="3000"
+                    android:textColor="#323076"
+                    android:textSize="19dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/approx_price_text"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <Button
                 android:id="@+id/angry_btn"
@@ -350,6 +395,7 @@
                 android:backgroundTint="#323076"
                 android:fontFamily="sans-serif"
                 android:paddingStart="3dp"
+                android:inputType="text"
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="0"

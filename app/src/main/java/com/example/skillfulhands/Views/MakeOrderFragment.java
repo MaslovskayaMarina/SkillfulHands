@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +23,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.skillfulhands.R;
-import com.example.skillfulhands.Succesfully;
 import com.example.skillfulhands.ViewModels.MakeOrderViewModel;
+import com.example.skillfulhands.ViewModels.Validators.EmptyValidator;
+import com.example.skillfulhands.ViewModels.Validators.PhoneValidator;
+import com.example.skillfulhands.ViewModels.Validators.SpinnerValidator;
+import com.example.skillfulhands.ViewModels.Validators.ValidatorsComposer;
 import com.example.skillfulhands.databinding.CreateOrderBinding;
-import com.example.skillfulhands.databinding.InformationAboutBinding;
 
 import java.util.Locale;
 
@@ -61,6 +66,8 @@ public class MakeOrderFragment extends Fragment {
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(getActivity(), R.layout.spiner_item, masters);
         dropdown3.setAdapter(adapter3);
 
+        binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+
         //editText=(EditText) v.findViewById(R.id.date_choice);
         editText = binding.dateChoice;
         DatePickerDialog.OnDateSetListener date =new DatePickerDialog.OnDateSetListener() {
@@ -80,6 +87,53 @@ public class MakeOrderFragment extends Fragment {
             }
         });
 
+        binding.spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                order.setDeviceSelected(position);
+                binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+            }
+
+        });
+
+        binding.spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                order.setProblemTypeSelected(position);
+                binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+            }
+
+        });
+
+        EditText promo = binding.promocodeInput;
+        promo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                order.setPromo(s.toString());
+                binding.approxPrice.setText(Integer.toString(order.getApproxPrice()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         angryButton.setOnClickListener(new View.OnClickListener() { // ДЛЯ КНОПКИ!!!
             @Override
             public void onClick(View v) {
@@ -92,13 +146,37 @@ public class MakeOrderFragment extends Fragment {
                 String dateToCome = binding.dateChoice.getText().toString();
                 String promoCode = binding.promocodeInput.getText().toString();
 
-                order.makeOrder(clientFullName, clientPhoneNum, deviceType, problemType, problemDesc, clientMaster, dateToCome, promoCode);
+                PhoneValidator phoneValidator = new PhoneValidator();
+                EmptyValidator emptyValidator = new EmptyValidator();
+                SpinnerValidator spinnerValidator = new SpinnerValidator();
 
-                Fragment someFragment = new Succesfully();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.My2st, someFragment );
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if (!emptyValidator.isValid(clientFullName)) {
+                    binding.fioInput.setError(emptyValidator.getDescription());
+                }
+                else if (!phoneValidator.isValid(clientPhoneNum)) {
+                    binding.phoneNumInput.setError(phoneValidator.getDescription());
+                }
+                else if (!spinnerValidator.isValid(deviceType)) {
+                    TextView errorText = (TextView)dropdown.getSelectedView();
+                    errorText.setError(spinnerValidator.getDescription());
+                }
+                else if (!spinnerValidator.isValid(problemType)) {
+                    TextView errorText = (TextView)dropdown2.getSelectedView();
+                    errorText.setError(spinnerValidator.getDescription());
+                }
+                else if (!spinnerValidator.isValid(clientMaster)) {
+                    TextView errorText = (TextView)dropdown3.getSelectedView();
+                    errorText.setError(spinnerValidator.getDescription());
+                }
+                else {
+                    order.makeOrder(clientFullName, clientPhoneNum, deviceType, problemType, problemDesc, clientMaster, dateToCome, promoCode);
+
+                    Fragment someFragment = new SuccesfullyFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.My2st, someFragment );
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
             }
         });
 

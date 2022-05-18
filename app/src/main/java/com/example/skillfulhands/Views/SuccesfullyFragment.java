@@ -1,4 +1,4 @@
-package com.example.skillfulhands;
+package com.example.skillfulhands.Views;
 
 import android.os.Bundle;
 
@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.skillfulhands.R;
 import com.example.skillfulhands.Views.AboutOrderFragment;
 
-public class Succesfully extends Fragment {
+public class SuccesfullyFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

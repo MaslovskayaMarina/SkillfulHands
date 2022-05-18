@@ -1,4 +1,4 @@
-package com.example.skillfulhands;
+package com.example.skillfulhands.Views;
 
 import android.os.Bundle;
 
@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Information extends Fragment {
+import com.example.skillfulhands.R;
+
+public class InformationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
