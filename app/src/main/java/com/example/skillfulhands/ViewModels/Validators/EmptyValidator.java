@@ -10,6 +10,6 @@ public class EmptyValidator implements Validator<String>{
 
     @Override
     public String getDescription() {
-        return "Поля должно быть пустым!";
+        return "Поля не должно быть пустым!";
     }
 }
