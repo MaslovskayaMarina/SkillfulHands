@@ -44,6 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/waiting_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
@@ -87,6 +88,7 @@
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/waiting_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
@@ -118,6 +120,7 @@
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/waiting_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
@@ -180,6 +183,7 @@
                 android:textSize="18dp" />
 
             <TextView
+                android:id="@+id/waiting_cost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="3dp"

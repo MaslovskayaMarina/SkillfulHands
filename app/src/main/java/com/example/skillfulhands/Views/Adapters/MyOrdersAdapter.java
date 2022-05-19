@@ -10,12 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skillfulhands.Models.Order;
+import com.example.skillfulhands.Models.Status;
 import com.example.skillfulhands.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrdersViewHolder> {
+public class MyOrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Order> orderList;
     Context context;
 
@@ -26,21 +26,66 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
 
     @NonNull
     @Override
-    public MyOrdersAdapter.MyOrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
-        View view=inflater.inflate(R.layout.order_done, parent, false);
-        return new MyOrdersAdapter.MyOrdersViewHolder(view);
+        RecyclerView.ViewHolder vh;
+        View itemLayoutView;
+
+        //загружаем разметку в зависимости от типа и возвращаем
+        //нужный холдер
+        switch (viewType)
+        {
+            case 0:
+                itemLayoutView = inflater.inflate(R.layout.order_in_proccess, parent, false);
+                vh = new ProccessViewHolder(itemLayoutView);
+                break;
+            case 1:
+                itemLayoutView = inflater.inflate(R.layout.order_waiting, parent, false);
+                vh = new WaitingViewHolder(itemLayoutView);
+                break;
+            case 2:
+                itemLayoutView = inflater.inflate(R.layout.order_done, parent, false);
+                vh = new DoneViewHolder(itemLayoutView);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + viewType);
+        }
+
+        return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyOrdersAdapter.MyOrdersViewHolder holder, int position) {
-        final Order temp = orderList.get(position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        switch (this.getItemViewType(position))
+        {
+            case 0:
+                ProccessViewHolder proccessViewHolder = (ProccessViewHolder) holder;
+                ((ProccessViewHolder) holder).id.setText(orderList.get(position).getNum());
+                break;
+            case 1:
+                WaitingViewHolder waitingViewHolder = (WaitingViewHolder) holder;
+                //наполняем данными разметку для нулевого типа
+                ((WaitingViewHolder) holder).id.setText(orderList.get(position).getNum());
+                break;
+            case 2:
+                DoneViewHolder doneViewHolder = (DoneViewHolder) holder;
+                //наполняем данными разметку для нулевого типа
+                ((DoneViewHolder) holder).id.setText(orderList.get(position).getNum());
+                break;
+        }
+    }
 
-        holder.id.setText(orderList.get(position).getNum());
-        holder.date.setText(orderList.get(position).getDate());
-        holder.status.setText(orderList.get(position).getStatus().getTitle());
-        holder.warranty.setText("1 year");
-
+    @Override
+    public int getItemViewType(int position) {
+        if (orderList.get(position).getStatus().equals(Status.PROCESS)) {
+            return 0;
+        } else if (orderList.get(position).getStatus().equals(Status.WAITING)) {
+            return 1;
+        } else if (orderList.get(position).getStatus().equals(Status.DONE)) {
+            return 2;
+        } else {
+            return -1;
+        }
     }
 
     @Override
@@ -48,20 +93,40 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.MyOrde
         return orderList.size();
     }
 
-    class MyOrdersViewHolder extends RecyclerView.ViewHolder {
-        TextView id, date, status, warranty;
+    public static class ProccessViewHolder extends RecyclerView.ViewHolder {
+        public TextView id, dateOfBringing, status, cost, dateToGet;
 
-        public MyOrdersViewHolder(@NonNull View itemView) {
+        public ProccessViewHolder(View itemView) {
+            super(itemView);
+            id = itemView.findViewById(R.id.textView3);
+            dateOfBringing = itemView.findViewById(R.id.order_proccess_date);
+            status = itemView.findViewById(R.id.proccess_status);
+            cost = itemView.findViewById(R.id.proccess_cost);
+            dateToGet = itemView.findViewById(R.id.textView4);
+        }
+    }
+
+    public static class WaitingViewHolder extends RecyclerView.ViewHolder {
+        public TextView id, dateOfBringing, status, cost;
+
+        public WaitingViewHolder(View itemView) {
+            super(itemView);
+            id = itemView.findViewById(R.id.waiting_num);
+            dateOfBringing = itemView.findViewById(R.id.waiting_date);
+            status = itemView.findViewById(R.id.waiting_status);
+            cost = itemView.findViewById(R.id.waiting_cost);
+        }
+    }
+
+    public static class DoneViewHolder extends RecyclerView.ViewHolder {
+        public TextView id, date, status, warranty;
+
+        public DoneViewHolder(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.textView73);
             date = itemView.findViewById(R.id.date_of_bringing);
             status = itemView.findViewById(R.id.status);
             warranty = itemView.findViewById(R.id.warranty);
         }
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyOrdersViewHolder holder, int position, @NonNull List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
     }
 }
