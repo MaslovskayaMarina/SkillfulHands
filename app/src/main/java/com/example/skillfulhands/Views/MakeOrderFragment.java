@@ -145,6 +145,7 @@ public class MakeOrderFragment extends Fragment {
                 String clientMaster = dropdown3.getSelectedItem().toString();
                 String dateToCome = binding.dateChoice.getText().toString();
                 String promoCode = binding.promocodeInput.getText().toString();
+                int approxPrice = Integer.parseInt(binding.approxPrice.getText().toString());
 
                 PhoneValidator phoneValidator = new PhoneValidator();
                 EmptyValidator emptyValidator = new EmptyValidator();
@@ -169,7 +170,17 @@ public class MakeOrderFragment extends Fragment {
                     errorText.setError(spinnerValidator.getDescription());
                 }
                 else {
-                    order.makeOrder(clientFullName, clientPhoneNum, deviceType, problemType, problemDesc, clientMaster, dateToCome, promoCode);
+                    order.makeOrder(
+                            clientFullName,
+                            clientPhoneNum,
+                            deviceType,
+                            problemType,
+                            problemDesc,
+                            clientMaster,
+                            dateToCome,
+                            promoCode,
+                            approxPrice
+                    );
 
                     Fragment someFragment = new SuccesfullyFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();

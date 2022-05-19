@@ -91,7 +91,8 @@ public class Repository {
             String problemDesc,
             String date,
             String master,
-            Promo promoCode)
+            Promo promoCode,
+            int approxPrice)
     {
         Order order =  new Order();
         order.setNum(Integer.toString(orderCounter));
@@ -105,6 +106,7 @@ public class Repository {
         order.setNumberMaster("+79012227473");
         order.setAddress(serviceAddress);
         order.setPromo(promoCode);
+        order.setCurrentPrice(approxPrice);
 
         orders.add(order);
 
@@ -116,30 +118,52 @@ public class Repository {
     }
 
     public void fillRepo() {
-        orders.add(new Order(
+        Order orderProcess = new Order(
                 "223",
                 "Apple iPad",
                 "31.01.2022",
                 "Улица Пушкина д.8",
                 "Ричард III",
-                "+798422848284",
+                "+7 (000) 000-00-00",
                 "Van Darkholme",
                 "+792582858253",
                 "Проблема не во мне, проблема в тебе",
                 "Сел я значит на айпад.."
-        ));
-        orders.add(new Order(
+        );
+        orderProcess.setCurrentPrice(2000);
+        orders.add(orderProcess);
+
+        Order orderWaiting = new Order(
                 "224",
                 "Realme XT",
                 "24.11.2022",
                 "Улица Есенина д.Каруселина",
                 "Джонни Депп",
-                "+783975927970",
+                "+7 (000) 000-00-00",
                 "Van Darkholme",
                 "+792583523523",
                 "Сломанная камера",
                 "После того, как уронил телефон в туалет.."
-        ));
+        );
+        orderWaiting.setCurrentPrice(2500);
+        orderWaiting.setStatus(Status.WAITING);
+        orders.add(orderWaiting);
+
+        Order orderDone = new Order(
+            "225",
+                "Xiaomi MiBand 5",
+                "19.05.2022",
+                "Вавилова 5",
+                "Геннадий Загребов",
+                "+7 (000) 000-00-00",
+                "Van Darkholme",
+                "+792583523523",
+                "Сломанный датчик пульса",
+                "Решил я значит поставить блок на уширо-маваши гери.."
+        );
+        orderDone.setCurrentPrice(3000);
+        orderDone.setStatus(Status.DONE);
+        orders.add(orderDone);
     }
 
     public ArrayList<Order> getOrdersByUser() {

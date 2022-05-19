@@ -88,13 +88,34 @@ public class MakeOrderViewModel extends ViewModel {
             String problemDesc,
             String master,
             String date,
-            String promoCode
+            String promoCode,
+            int approxPrice
     ) {
         if (repository.getPromoByCode(promoCode) != null) {
-            repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master, repository.getPromoByCode(promoCode));
+            repository.CreateOrder(
+                    clientName,
+                    clientPhone,
+                    device,
+                    problemType,
+                    problemDesc,
+                    date,
+                    master,
+                    repository.getPromoByCode(promoCode),
+                    approxPrice
+            );
             return;
         } else {
-            repository.CreateOrder(clientName, clientPhone, device, problemType, problemDesc, date, master, repository.getPromoByCode(""));
+            repository.CreateOrder(
+                    clientName,
+                    clientPhone,
+                    device,
+                    problemType,
+                    problemDesc,
+                    date,
+                    master,
+                    repository.getPromoByCode(""),
+                    approxPrice
+            );
         }
     }
 }

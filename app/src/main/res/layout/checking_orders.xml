@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.011" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <com.example.skillfulhands.MaskedEditText
         android:id="@+id/phone_number_input"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -69,8 +69,10 @@
         android:textColorHint="#D8D8D8"
         android:textSize="17dp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintTop_toBottomOf="@+id/ВведитеНомерТелефона">
-    </com.google.android.material.textfield.TextInputEditText>
+        app:layout_constraintTop_toBottomOf="@+id/ВведитеНомерТелефона"
+        app:mask="+9 (999) 999-99-99"
+        app:placeholder="_"
+        android:inputType="phone"/>
         <Button
             android:id="@+id/search_button"
             android:layout_width="match_parent"

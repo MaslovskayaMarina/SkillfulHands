@@ -1,6 +1,7 @@
 package com.example.skillfulhands.Models;
 
 public enum Status {
+
     PROCESS("В процессе"),
     WAITING("Ожидание"),
     DONE("Получен");
