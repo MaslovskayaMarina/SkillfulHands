@@ -61,16 +61,24 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             case 0:
                 ProccessViewHolder proccessViewHolder = (ProccessViewHolder) holder;
                 ((ProccessViewHolder) holder).id.setText(orderList.get(position).getNum());
+                ((ProccessViewHolder) holder).dateOfBringing.setText(orderList.get(position).getDate());
+                ((ProccessViewHolder) holder).status.setText(orderList.get(position).getStatus().toString());
+                ((ProccessViewHolder) holder).cost.setText(Integer.toString(orderList.get(position).getCurrentPrice()));
                 break;
             case 1:
                 WaitingViewHolder waitingViewHolder = (WaitingViewHolder) holder;
                 //наполняем данными разметку для нулевого типа
                 ((WaitingViewHolder) holder).id.setText(orderList.get(position).getNum());
+                ((WaitingViewHolder) holder).dateOfBringing.setText(orderList.get(position).getDate());
+                ((WaitingViewHolder) holder).status.setText(orderList.get(position).getStatus().toString());
+                ((WaitingViewHolder) holder).cost.setText(Integer.toString(orderList.get(position).getCurrentPrice()));
                 break;
             case 2:
                 DoneViewHolder doneViewHolder = (DoneViewHolder) holder;
                 //наполняем данными разметку для нулевого типа
                 ((DoneViewHolder) holder).id.setText(orderList.get(position).getNum());
+                ((DoneViewHolder) holder).date.setText(orderList.get(position).getDate());
+                ((DoneViewHolder) holder).status.setText(orderList.get(position).getStatus().toString());
                 break;
         }
     }
